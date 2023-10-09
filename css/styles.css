@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+:root {
+    --font-body: 'Open Sans', sans-serif;
+    --font-headline: 'Roboto', sans-serif;
+    --primary-color: #b2f2bb;
+    --secondary-color: #1e1e1e;
+    --background-color: #1e1e1e;
+    --text-primary: #1e1e1e;
+    --text-background: #ffffff;
+}
+
+/* Nav Bar */
+#ham-menu {
+    width: 50px;
+}
