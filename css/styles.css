@@ -6,11 +6,228 @@
     --primary-color: #b2f2bb;
     --secondary-color: #1e1e1e;
     --background-color: #1e1e1e;
+    /*  */
+    /* #cccccc */
+    --secondary-background: #333333;
     --text-primary: #1e1e1e;
     --text-background: #ffffff;
+    --border-color: #1e1e1e;
 }
+
+/* HTML element Styles */
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    color: var(--text-background);
+}
+
+p, li {
+    font-family: var(--font-body);
+    color: var(--text-background);
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    background-color: #333333;
+    margin: 0px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-background);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* End HTML element styels */
+
+/* Utility styles */
+.section-heading {
+    margin-left: 15px;
+}
+
+.d-none {
+    display: none;
+}
+
+.toggle-capsule {
+    background-color: var(--primary-color);
+    width: 55px;
+    height: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.toggle-indicator {
+    width: 20px;
+    height: 20px;
+    background-color: #80c059;
+    border-radius: 50%;
+
+    transition: transform 0.3s ease;
+}
+
+.toggle-right {
+    transform: translateX(35px);
+}
+
+.toggle-left {
+    transform: translateX(0px);
+}
+/* End Utility */
 
 /* Nav Bar */
 #ham-menu {
     width: 50px;
+}
+
+.menu-icon {
+    width: 70px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#nav-bar {
+    height: 100vh;
+    max-width: 500px;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: var(--background-color);
+
+    padding: 20px;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr 1fr;
+}
+
+#menu-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#menu-section img {
+    cursor: pointer;
+}
+
+#nav-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nav-section p {
+    font-size: 24px;
+}
+
+.nav-item {
+    width: 80%;
+    height: 100px;
+
+    border-radius: 7px;
+    padding: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: var(--primary-color);
+}
+
+.nav-icon {
+    width: 75px;
+    height: 75px;
+
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 7px;
+}
+
+#settings-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#copyright-section {
+    text-align: center;
+}
+
+/* End Nav Bar */
+
+/* Game Card Styles */
+.card {
+    width: 30vw;
+    height: 375px;
+    text-align: center;
+
+    display: grid;
+    grid-template-rows: 4fr 1fr 1fr;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Change the box shadow on hover for an interactive effect */
+}
+
+.card-img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
+.card-bottom-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-group {
+    display: flex;
+    justify-content: space-evenly;
+}
+/* End Game Card Styles */
+
+/* Header */
+header {
+    width: 100%;
+    height: 100px;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
