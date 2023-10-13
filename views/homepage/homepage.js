@@ -8,6 +8,12 @@ async function generateHome() {
         const game = new Game('#top-games', item);
         game.generateCard();
     });
+
+    const upcomingData = await getHighestRated(3, 1);
+    upcomingData.results.forEach(item => {
+        const upcomingGame = new Game('#upcoming-games', item);
+        upcomingGame.generateCard();
+    });
 }
 
 generateHome();

@@ -40,7 +40,7 @@ li {
 }
 
 body {
-    background-color: #333333;
+    background-color: var(--secondary-background);
     margin: 0px;
 }
 
@@ -208,6 +208,7 @@ button {
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
+    border-radius: 10px;
 }
 
 .card-bottom-div {
@@ -230,4 +231,37 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+/* Mobile Styles */
+
+@media screen and (max-width: 720px) {
+    #menu-section, #copyright-section, header, #nav-section p {
+        display: none;
+    }
+
+    #nav-bar {
+        display: block;
+        position: sticky;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        max-width: none;
+    }
+
+    #nav-section {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+    }
+
+    .nav-item {
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .nav-icon {
+        height: 100%;
+        width: 100%;
+    }
 }

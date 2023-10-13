@@ -1,3 +1,5 @@
+import { lightMode, darkMode } from "../js/utility.mjs";
+
 export async function renderNavBar() {
     const body = document.querySelector('body');
 
@@ -19,6 +21,19 @@ export async function renderNavBar() {
     toggleSwitch.addEventListener('click', function () {
         toggleIndicator.classList.toggle('toggle-right');
         toggleIndicator.classList.toggle('toggle-left');
+
+        const mode = localStorage.getItem('mode');
+
+        if (!mode) {
+            localStorage.setItem('mode', 'light');
+            lightMode();
+        } else if (mode == 'light') {
+            localStorage.setItem('mode', 'dark');
+            darkMode();
+        } else if (mode == 'dark') {
+            localStorage.setItem('mode', 'light');
+            lightMode();
+        }
     })
 
     body.appendChild(div);
