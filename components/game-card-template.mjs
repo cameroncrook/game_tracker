@@ -41,5 +41,5 @@ export function gameCard(parent_selector, thumnail, name, genres) {
 
     document.querySelector(parent_selector).appendChild(cardDiv);
 
-    return
+    return cardDiv
 }

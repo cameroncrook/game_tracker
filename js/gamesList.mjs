@@ -1,28 +1,34 @@
-import { getHighestRated } from "./apiConnection.mjs";
 import Game from "./game.mjs";
-
-// get rid of this and just do it in the page js files?
+import { getLocalStorage } from "./utility.mjs";
 
 export default class GamesList {
-    constructor() {
+    constructor(listDict) {
+        this.listDict = listDict;
         this.games;
+        this.name;
+        this.description;
     }
+    loadList() {
+        this.name = this.listDict.name;
+        this.description = this.listDict.description;
+        this.games = this.listDict.games;
 
-    async getGames(apiCall) {
-        let data = null;
+        return
+    }
+    displayListName(parentElement) {
+        const h3 = document.createElement('h3');
+        h3.textContent = this.name;
 
-        if (apiCall == 'rank') {
-            data = await getHighestRated(3, 1);
-        }
+        parentElement.appendChild(h3);
 
-        if (data != null) {
-            const gameData = data.results;
-
-            gameData.forEach(item => {
-                const game = new Game(item);
-                game.init();
-            });
-        }
+        return
+    }
+    displayListGames(parentElement) {
+        this.games.forEach(gameInfo => {
+            const game = new Game(parentElement, gameInfo);
+            game.generateCard();
+        });
         
+        return
     }
 }

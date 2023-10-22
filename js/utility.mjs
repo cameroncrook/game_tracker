@@ -1,5 +1,6 @@
 import { loadHeader } from "../components/header-footer-template.mjs";
 import { renderNavBar } from "../components/navbarTemplate.mjs";
+import GamesList from "./gamesList.mjs";
 
 export function init() {
     loadHeader();
@@ -31,4 +32,33 @@ export function darkMode() {
     root.style.setProperty('--background-color', '#1e1e1e');
     root.style.setProperty('--secondary-background', '#333333');
     root.style.setProperty('--text-background', '#ffffff');
+}
+
+// Gets the lists from local storage and creates class instances for each list
+export function getLists() {
+    let lists = [];
+    if (localStorage.getItem('lists')) {
+        const listData = getLocalStorage('lists');
+    
+        listData.forEach(list => {
+            const gamesList = new GamesList(list);
+
+            gamesList.loadList();
+
+            lists.push(gamesList);
+        });
+    }
+
+    return lists
+}
+
+export function getFormData(form) {
+    const formData = new FormData(form),
+        convertedJSON = {};
+
+    formData.forEach(function (value, key) {
+        convertedJSON[key] = value;
+    });
+
+    return convertedJSON
 }

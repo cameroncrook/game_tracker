@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tracker</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="discover.js" type="module"></script>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <section class="flex-center">
+            <form id="filter-form" class="flex-vertical-evenly border-rounded">
+                <div class="flex-vertical-evenly">
+                    <label for="search-bar">Search</label>
+                    <input class="border-rounded-sm" id="search-bar" type="text" name="search">
+                </div>
+                <div class="grid-3">
+                    <div class="flex-vertical-evenly">
+                        <label for="genre-select">Genre</label>
+                        <select class="border-rounded-sm" id="genre-select" name="genre">
+                            <option value="">Any</option>
+                        </select>
+                    </div>
+                    <div class="flex-vertical-evenly">
+                        <label for="platform-select">Platform</label>
+                        <select class="border-rounded-sm" id="platform-select" name="platform">
+                            <option value="">Any</option>
+                        </select>
+                    </div>
+                    <div class="flex-vertical-evenly">
+                        <label for="release-select">Release Year</label>
+                        <select class="border-rounded-sm" id="release-select" name="release">
+                            <option value="">Any</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </section>
+        <section class="card-group">
+
+        </section>
+        <section class="pagination">
+            
+        </section>
+    </main>
+</body>
+</html>

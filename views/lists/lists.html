@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tracker</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="lists.js" type="module"></script>
+</head>
+<body class="list-page-view">
+    <header>
+        
+    </header>
+    <main id="list-main">
+        <section id="list-section">
+            <button id="create-list-button">Create New List +</button>
+        </section>
+        <div class="vertical-line"></div>
+        <section id="list-game-section">
+
+        </section>
+        <form class="create-form pop-up border-rounded d-none">
+            <div class="flex-vertical-evenly">
+                <label for="name-input">Name</label>
+                <input class="border-rounded-sm" id="name-input" name="name" type="text" required>
+            </div>
+            <div class="flex-vertical-evenly">
+                <label for="description-input">Description</label>
+                <textarea class="border-rounded-sm" id="description-input" name="description"></textarea>
+            </div>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
