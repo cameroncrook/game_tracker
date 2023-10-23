@@ -1,4 +1,7 @@
-export function gameCard(parent_selector, thumnail, name, genres) {
+import { addToListForm } from "./addToListForm.mjs";
+import { gameDetailsCard } from "./gameDetails.mjs";
+
+export function gameCard(parent_selector, thumnail, name, genres, game) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'card';
 
@@ -6,6 +9,12 @@ export function gameCard(parent_selector, thumnail, name, genres) {
     imgDiv.className = "card-img-div";
     const img = document.createElement('img');
     img.src = thumnail;
+
+    //Display game details when clicked
+    img.addEventListener('click', function() {
+        gameDetailsCard(game.gameData);
+    })
+
     imgDiv.appendChild(img);
     cardDiv.appendChild(imgDiv);
 
@@ -15,14 +24,6 @@ export function gameCard(parent_selector, thumnail, name, genres) {
 
     const bottomDiv = document.createElement('div');
     bottomDiv.className = 'card-bottom-div';
-    // const ul = document.createElement('ul');
-    // ul.className = "genres";
-
-    // genres.forEach(item => {
-    //     const li = document.createElement('li');
-    //     li.textContent = item.name;
-    //     ul.appendChild(li);
-    // });
 
     const genreP = document.createElement('p');
     genreP.className = "genres-p";
@@ -34,8 +35,14 @@ export function gameCard(parent_selector, thumnail, name, genres) {
 
     bottomDiv.appendChild(genreP);
     
+    // Add to list button
     const button = document.createElement('button');
     button.textContent = 'Add to List';
+
+    button.addEventListener('click', function() {
+        addToListForm(game, imgDiv, button);
+    })
+
     bottomDiv.appendChild(button);
     cardDiv.appendChild(bottomDiv);
 

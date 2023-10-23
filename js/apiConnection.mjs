@@ -35,7 +35,7 @@ export async function customSearch(page_size, page, filterData) {
         url += `&platforms=${filterData.platform}`;
     }
     if (filterData.release != '') {
-        url += `&dates=${filterData.release}-01-01,${filterData.release + 1}-01-01`;
+        url += `&dates=${filterData.release}-01-01,${parseInt(filterData.release) + 1}-01-01`;
     }
 
     const response = await fetch(url);

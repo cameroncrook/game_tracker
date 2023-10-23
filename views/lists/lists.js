@@ -6,6 +6,7 @@ init()
 const form = document.querySelector('.create-form');
 
 document.getElementById('create-list-button').addEventListener('click', formToggle);
+document.querySelector('menu-close-icon').addEventListener('click', formToggle);
 
 // Form event listener
 form.addEventListener('submit', function(event) {
@@ -30,41 +31,69 @@ form.addEventListener('submit', function(event) {
 
     formToggle();
 
+    const listSection = document.querySelector('#list-section');
+    const gameSection = document.querySelector('#list-game-section');
+
+    const newList = new GamesList();
+    newList.description = formData.description;
+    newList.name = formData.name;
+    newList.games = formData.games;
+
+    addToLists(newList, true);
+
     return;
 })
 
 function main() {
     const lists = getLists();
 
+    let first = true;
+    lists.forEach(gameList => {
+        if (first) {
+            first = false;
+            addToLists(gameList, true);
+        } else {
+            addToLists(gameList); 
+        }
+    })
+
+    return
+}
+
+// Adds a single gamesList class instance to the list section
+function addToLists(gameList, active=false) {
     const listSection = document.querySelector('#list-section');
     const gameSection = document.querySelector('#list-game-section');
 
-    let first = true;
-    lists.forEach(gameList => {
-        const listDiv = document.createElement('div');
-        listDiv.className = 'list-div';
+    const listDiv = document.createElement('div');
+    listDiv.className = 'list-div';
 
-        gameList.displayListName(listDiv);
+    gameList.displayListName(listDiv);
 
-        listDiv.addEventListener('click', function() {
-            const previousActive = document.querySelectorAll('.active');
-            previousActive.forEach(element => {
-                element.classList.remove('active');
-            })
+    listDiv.addEventListener('click', function() {
+        resetActive();
 
-            listDiv.classList.add('active');
+        listDiv.classList.add('active');
 
-            gameList.displayListGames(gameSection);
-        })
+        gameList.displayListGames(gameSection);
+    })
 
-        if (first) {
-            listDiv.classList.add('active');
-            gameList.displayListGames(gameSection);
+    if (active) {
+        resetActive();
 
-            first = false;
-        }
+        listDiv.classList.add('active');
+        gameList.displayListGames(gameSection);
+    }
 
-        listSection.appendChild(listDiv);
+    listSection.appendChild(listDiv);
+
+    return
+}
+
+function resetActive() {
+    const previousActive = document.querySelectorAll('.active');
+    previousActive.forEach(element => {
+        element.classList.remove('active');
     })
 
     return

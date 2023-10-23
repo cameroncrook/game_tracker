@@ -12,10 +12,15 @@ generateSelects();
 form.addEventListener('submit', async function(event) {
     event.preventDefault();
 
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.textContent = 'Loading...'
     const formData = getFormData(form);
 
     const response = await customSearch(9, 1, formData);
-
+    if (response) {
+        submitBtn.textContent = "Search";
+    }
+    
     displayData(response);
 
     form.reset();
@@ -56,6 +61,15 @@ async function generateSelects() {
     })
 
     const releaseSelect = document.getElementById('release-select');
+    const currentYear = new Date().getFullYear();
+
+    for (let i = 2000; i < (currentYear + 2); i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+
+        releaseSelect.appendChild(option);
+    }
 }
 
 async function displayData(data) {
