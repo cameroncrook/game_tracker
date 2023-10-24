@@ -369,8 +369,9 @@ header {
 
 @media screen and (max-width: 780px) {
     #list-main {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 130px 1fr;
+        grid-template-columns: 1fr;
     }
 
     #list-section {
