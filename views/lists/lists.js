@@ -6,7 +6,7 @@ init()
 const form = document.querySelector('.create-form');
 
 document.getElementById('create-list-button').addEventListener('click', formToggle);
-document.querySelector('menu-close-icon').addEventListener('click', formToggle);
+document.querySelector('.menu-close-icon').addEventListener('click', formToggle);
 
 // Form event listener
 form.addEventListener('submit', function(event) {
