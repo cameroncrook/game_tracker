@@ -2,7 +2,7 @@ function template(game) {
     const html = `
     <div class="overlay-box border-rounded">
         <div>
-            <img class="menu-close-icon" src="/game-tracker/images/002-close.png">
+            <img class="menu-close-icon" src="/game_tracker/images/002-close.png">
         </div>
         <section>
             <div id="active-img"></div>

@@ -3,7 +3,7 @@ import { lightMode, darkMode } from "../js/utility.mjs";
 export async function renderNavBar() {
     const body = document.querySelector('body');
 
-    const response = await fetch('/game-tracker/components/navbar.html');
+    const response = await fetch('/game_tracker/components/navbar.html');
     const html = await response.text();
 
     const div = document.createElement('div');

@@ -17,7 +17,7 @@ export function addToListForm(game, formDiv, button) {
     // Close Button
     const div = document.createElement('div');
     const close = document.createElement('img');
-    close.src = "/game-tracker/images/002-close.png";
+    close.src = "/game_tracker/images/002-close.png";
 
     close.addEventListener('click', function() {
         formDiv.removeChild(form);

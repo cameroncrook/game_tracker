@@ -3,7 +3,7 @@ export function loadHeader() {
 
     const menuIcon = document.createElement('img');
 
-    menuIcon.src = '/game-tracker/images/more.png';
+    menuIcon.src = '/game_tracker/images/more.png';
 
     menuIcon.className = 'menu-icon';
     menuIcon.addEventListener('click', function() {

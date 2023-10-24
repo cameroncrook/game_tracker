@@ -96,9 +96,9 @@ function getPagination(data) {
         previousBtn.textContent = "Previous";
 
         previousBtn.addEventListener('click', async function() {
-            const data = await fetchURL(data.previous);
+            const response = await fetchURL(data.previous);
 
-            displayData(data);
+            displayData(response);
 
             return
         })
@@ -111,9 +111,9 @@ function getPagination(data) {
         nextBtn.textContent = "Next";
 
         nextBtn.addEventListener('click', async function() {
-            const data = await fetchURL(data.next);
+            const response = await fetchURL(data.next);
 
-            displayData(data);
+            displayData(response);
 
             return
         })
