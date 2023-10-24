@@ -41,9 +41,9 @@ export function getLists() {
         const listData = getLocalStorage('lists');
     
         listData.forEach(list => {
-            const gamesList = new GamesList(list);
+            const gamesList = new GamesList();
 
-            gamesList.loadList();
+            gamesList.loadList(list);
 
             lists.push(gamesList);
         });

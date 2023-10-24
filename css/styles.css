@@ -173,6 +173,10 @@ button {
     padding: 20px;
 }
 
+.menu-close-icon {
+    cursor: pointer;
+}
+
 .nav-grid {
     display: grid;
     grid-template-rows: 1fr 4fr 1fr 1fr;
@@ -265,6 +269,10 @@ button {
     overflow: hidden;
 }
 
+.card-img-div img {
+    cursor: pointer;
+}
+
 .card-bottom-div {
     display: flex;
     justify-content: space-around;
@@ -313,11 +321,6 @@ header {
     height: 100%;
 }
 
-.list-page-view {
-    display: grid;
-    grid-template-rows: 120px 1fr;
-}
-
 #list-section {
     display: flex;
     flex-direction: column;
@@ -328,6 +331,15 @@ header {
 #list-game-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.list-description {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #create-list-button {
@@ -347,6 +359,41 @@ header {
     padding: 25px;
 }
 
+@media screen and (max-width: 600px) {
+    #list-game-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    #list-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #list-section {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        overflow-x: scroll;
+        max-width: 100vh;
+
+        text-align: center;
+    }
+
+    .list-div {
+        min-width: 100px;
+    }
+
+    #create-list-button {
+        width: 100px;
+    }
+
+    .vertical-line {
+        height: 3px;
+    }
+}
+
 /* End List Styles */
 
 /* Form Styles */
@@ -363,6 +410,17 @@ form textarea {
 form select {
     height: 25px;
     font-family: var(--font-body);
+    cursor: pointer;
+}
+
+form img {
+    cursor: pointer;
+}
+
+.add-form-overlay {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
 /* End Form Styles */
 
@@ -394,35 +452,74 @@ form select {
     margin-left: 20px;
     width: 100px;
 }
+
+@media screen and (max-width: 680px) {
+    #filter-form .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    #filter-form {
+        height: 250px;
+    }
+}
 /* End Discover Styles */
 
+/* Game Details Card */
+.active-img {
+    border: solid 2px white;
+    border-radius: 5px;
+}
+
+.img-preview {
+    width: 75px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.game-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.game-details-grid div h3 {
+    text-decoration: underline;
+}
+
+.sticky-overlay {
+    position: sticky;
+    top: 20px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    grid-column: 1/4;
+}
+
+.overlay-box {
+    width: 90vw;
+    height: 90vh;
+    padding: 20px;
+    background-color: var(--background-color);
+    overflow: scroll;
+}
+
+#game-images {
+    display: flex;
+    justify-content: flex-start;
+    overflow: scroll;
+    padding: 10px;
+}
+
+#active-img {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+/* End Game Details Card */
+
 @media screen and (max-width: 720px) {
-    #menu-section, #copyright-section, header, #nav-section p {
-        display: none;
-    }
-
     #nav-bar {
-        display: block;
-        position: sticky;
-        width: 100%;
-        height: auto;
-        bottom: 0;
-        max-width: none;
-    }
-
-    #nav-section {
-        flex-direction: row;
-        justify-content: space-evenly;
-
-    }
-
-    .nav-item {
-        width: 10vw;
-        height: 10vw;
-    }
-
-    .nav-icon {
-        height: 100%;
-        width: 100%;
+        width: 80%;
     }
 }
